@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="p-3">
+        <form method="post" th:action="@{/savePatient}">
+            <div class="mb-3 mt-3">
+                <label for="firstName" class="form-label">First Name:</label>
+                <input id="firstName" class="form-control" placeholder="First Name" name="firstName" th:value="${patient.firstName}">
+                <span class="text-danger" th:errors="${patient.firstName}"></span>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input id="lastName" class="form-control" placeholder="Last Name" name="lastName" th:value="${patient.lastName}">
+                <span class="text-danger" th:errors="${patient.lastName}"></span>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="birthDate" class="form-label">Birth Date:</label>
+                <input id="birthDate" type="date" class="form-control" placeholder="Birth Date" name="birthDate" th:value="${patient.birthDate}">
+                <span class="text-danger" th:errors="${patient.birthDate}"></span>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="score" class="form-label">Score:</label>
+                <input id="score" class="form-control" placeholder="Score" name="score" th:value="${patient.score}">
+                <span class="text-danger" th:errors="${patient.score}"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="ill" th:checked="${patient.ill}"> Ill
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
